@@ -5,6 +5,11 @@ require("dotenv").config();
 const port = process.env.PORT || 4000;
 const login = require("./routes/auth");
 
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
 app.use("/", login);
 
 // const connectDb = async () => {
