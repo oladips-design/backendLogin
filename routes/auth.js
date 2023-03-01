@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const userLogIn = (req, res) => {
+  const { email, password } = req.body;
   let person = {
     name: "Allahududdin Ayam",
     amount: "$127,200",
@@ -9,13 +10,13 @@ const userLogIn = (req, res) => {
     password: "AllahududdinAyam",
   };
 
-  const { email, password } = person;
-
   if ((!email, !password)) {
     res.status(400);
     throw new Error("invalid request, fill in all fields");
-  } else {
+  } else if (email === person.email && password === person.password) {
     res.send(person);
+  } else {
+    res.send("ERROR WRONG PASSWORD/ USERNAME");
   }
 };
 
