@@ -16,7 +16,7 @@ const userLogIn = (req, res) => {
   } else if (email === person.email && password === person.password) {
     res.send(person);
   } else {
-    res.send("ERROR WRONG PASSWORD/ USERNAME");
+    res.status(400).send("ERROR WRONG PASSWORD/ USERNAME");
   }
 };
 
