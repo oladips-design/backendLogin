@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const userLogIn = asyncHandler(async (req, res) => {
+const userLogIn = (req, res) => {
   let person = {
     name: "Allahududdin Ayam",
     amount: "$127,200",
@@ -17,7 +17,7 @@ const userLogIn = asyncHandler(async (req, res) => {
   } else {
     res.send(person);
   }
-});
+};
 
 router.post("/login", userLogIn);
 
